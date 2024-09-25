@@ -1,13 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# A python script that downloads all the images off @mkbhd's wallpaper app
 import os
 import json
 import requests
 from urllib.request import urlretrieve
 
-# Define the URL for fetching the JSON data if the local file doesn't exist
-URL = "https://storage.googleapis.com/panels-api/data/20240916/media-1a-i-p~s"  # Replace with the actual URL
+URL = "https://storage.googleapis.com/panels-api/data/20240916/media-1a-i-p~s"
 
 # Check if the file exists
 if os.path.exists("@mksld_media.json"):
