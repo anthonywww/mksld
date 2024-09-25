@@ -271,5 +271,9 @@ pyvenv.cfg
 pip-selfcheck.json
 
 # Project specific
-src/output/
-src/@mksld_media.json
+output/
+@mksld_media.json
+
+# Operating System specific
+.DS_Store
+Thumbs.db
