@@ -1,0 +1,8 @@
+# Project
+bin/
+output/
+*.pyc
+
+# System
+.DS_Store
+Thumbs.db
