@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# Author: Anthony Waldsmith <awaldsmith@protonmail.com>
 # A python script that downloads all the images off @mkbhd's wallpaper app
 import os
 import json

@@ -13,5 +13,3 @@ fi
 
 # Run the container
 docker run --rm -u "$(id -u):$(id -g)" -v "/$(pwd):/app" ${IMAGE_NAME}
-
-echo "Script execution completed. Container has been removed."

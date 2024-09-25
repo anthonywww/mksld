@@ -12,4 +12,4 @@ COPY requirements.txt ./
 RUN if [ -e requirements.txt ]; then pip install --no-cache-dir -r requirements.txt; fi
 
 # Run the script when the container launches
-CMD ["python3", "mksld.py"]
+CMD ["python3", "src/mksld.py"]
