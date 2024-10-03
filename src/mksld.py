@@ -29,6 +29,7 @@ if not data:
 
 # Directory for saving images
 output_dir = 'output'
+
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
     print(f"Created directory: {output_dir}")
@@ -36,23 +37,38 @@ if not os.path.exists(output_dir):
 # List to store 'dhd' URLs
 dhd_urls = []
 
-# Traverse the JSON and collect 'dhd' URLs
+# Traverse the JSON and collect URLs
 for key, value in data.get('data', {}).items():
-    if 'dhd' in value:
-        dhd_urls.append(value['dhd'])
-        print(f"Added URL from item {key}")
 
-print(f"Found {len(dhd_urls)} URLs to download.")
+    for url_key in ['dhd']: # , 'dsd', 's', 'wfs'
+
+        if url_key in value:
+
+            url = value[url_key]
+            artist_name = url.split('content/a~')[1].split('_')[0]
+            artist_dir = os.path.join(output_dir, artist_name)
+
+            if not os.path.exists(artist_dir):
+                os.makedirs(artist_dir)
+                print(f"Created directory for artist: {artist_name}")
+            
+            dhd_urls.append((url, url_key, artist_name))
+            print(f"Added {url_key} URL from item {key}")
 
 # Download each image
-for idx, url in enumerate(dhd_urls, 1):
+for idx, (url, url_key, artist_name) in enumerate(dhd_urls, 1):
+
     try:
+        
         # Generate filename from the last part of the URL
         filename = url.split('/')[-1].split('?')[0]
-        filepath = os.path.join(output_dir, f"{idx}_{filename}")
+
+        # Use artist directory for filepath
+        filepath = os.path.join(output_dir, artist_name, f"{idx}_{url_key}_{filename}")
         print(f"Downloading: {url}")
         urlretrieve(url, filepath)
         print(f"Image saved as {filepath}")
+
     except Exception as e:
         print(f"Failed to download {url}. Error: {e}")
 
