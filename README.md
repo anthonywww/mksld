@@ -1,3 +1,5 @@
+
+
 # mksld
 
 A very crappy (dockerized) script written in 10ish mins that scrapes [@MKBHD](https://x.com/MKBHD)'s wallpaper app's (Panels) **public** API and fetches all the images tagged with `dhd` (high-definition image).
@@ -9,6 +11,7 @@ A very crappy (dockerized) script written in 10ish mins that scrapes [@MKBHD](ht
 
 Python 3 + dependencies:
 ```sh
+pip install requests
 python3 src/mksld.py
 ```
 
